@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
+
+  mypython:
+    image: "python:latest"
+
+  mysqldb:
+    image: "mysql"
+    ports:
+    - 3307:3307
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root
